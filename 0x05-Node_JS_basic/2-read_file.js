@@ -1,10 +1,15 @@
+const fs = require('fs');
+
 const { spawnSync } = require('node:child_process');
 
 function countStudents(path) {
-  const cat = spawnSync('cat', [path]);
-  if (cat.status !== 0) {
+  if (!fs.existsSync(path)) {
     throw new Error('Cannot load the database');
   }
+  if (!fs.statSync(path).isFile()) {
+    throw new Error('Cannot load the database');
+  }
+  const cat = spawnSync('cat', [path]);
   const arr = cat.stdout.toString().split('\n');
   const newArr = arr.slice(1, arr.length - 1);
   console.log(`Number of students: ${newArr.length}`);
