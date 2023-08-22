@@ -1,7 +1,5 @@
 const fs = require('fs');
 
-const { spawnSync } = require('node:child_process');
-
 function countStudents(path) {
   if (!fs.existsSync(path)) {
     throw new Error('Cannot load the database');
@@ -9,8 +7,7 @@ function countStudents(path) {
   if (!fs.statSync(path).isFile()) {
     throw new Error('Cannot load the database');
   }
-  const cat = spawnSync('cat', [path]);
-  const arr = cat.stdout.toString().split('\n');
+  const arr = fs.readFileSync(path, 'utf-8').split('\n');
   const newArr = arr.slice(1, arr.length - 1);
   console.log(`Number of students: ${newArr.length}`);
   const vector = newArr.map((item) => item.split(','));
