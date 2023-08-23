@@ -13,7 +13,7 @@ const app = http.createServer((req, res) => {
   } else if (url === '/students') {
     let result = '';
     if (!fs.existsSync(path)) {
-      result = 'Cannot load the database';
+      result = 'This is the list of our students\nCannot load the database';
     } else {
       const arr = fs.readFileSync(path, 'utf-8').split('\n');
       const newArr = arr.slice(1, arr.length - 1);
