@@ -1,9 +1,5 @@
-import mocha from 'mocha';
-import chai from 'chai';
-import { expect } from 'chai';
-import calculateNumber from './0-calcul.js';
-import assert from 'assert';
-
+const assert = require('assert');
+const calculateNumber = require('./0-calcul');
 
 describe('test calculateNumber', () => {
 

@@ -7,4 +7,4 @@ function calculateNumber(a, b) {
   const y = roundNumber(b);
   return x + y;
 }
-export default calculateNumber;
+module.exports = calculateNumber;
