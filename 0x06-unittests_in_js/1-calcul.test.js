@@ -14,7 +14,7 @@ describe('test calculateNumber', () => {
     let num1 = 1.2;
     let num2 = 2.2;
     const result = calculateNumber('SUBTRACT', num1, num2);
-    assert.strictEqual(result, 1);
+    assert.strictEqual(result, -1);
   });
 
   it('test suite for type=DIVIDE', () => {
