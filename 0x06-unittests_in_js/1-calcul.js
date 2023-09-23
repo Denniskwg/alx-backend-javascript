@@ -1,4 +1,4 @@
-function calculateNumber(a, b, type) {
+function calculateNumber(type, a, b) {
   if (type === 'SUM') {
     const x = Math.round(a);
     const y = Math.round(b);
