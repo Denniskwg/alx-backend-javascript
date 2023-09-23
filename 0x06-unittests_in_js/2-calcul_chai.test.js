@@ -9,6 +9,9 @@ describe('test calculateNumber', () => {
     let num2 = 2.2;
     const result = calculateNumber('SUM', num1, num2);
     chai.expect(result).to.equal(3);
+    chai.expect(result).to.not.equal(num1 * num2)
+    chai.expect(result).to.not.equal(num1 - num2)
+    chai.expect(result).to.not.equal(num1 / num2)
   });
 
   it('test suite for type=SUBTRACT', () => {
@@ -16,6 +19,9 @@ describe('test calculateNumber', () => {
     let num2 = 2.2;
     const result = calculateNumber('SUBTRACT', num1, num2);
     chai.expect(result).to.equal(-1);
+    chai.expect(result).to.not.equal(num1 + num2)
+    chai.expect(result).to.not.equal(num1 * num2)
+    chai.expect(result).to.not.equal(num1 / num2)
   });
 
   it('test suite for type=DIVIDE', () => {
@@ -23,6 +29,9 @@ describe('test calculateNumber', () => {
     let num2 = 2.2;
     const result = calculateNumber('DIVIDE', num1, num2);
     chai.expect(result).to.equal(0.5);
+    chai.expect(result).to.not.equal(num1 + num2)
+    chai.expect(result).to.not.equal(num1 * num2)
+    chai.expect(result).to.not.equal(num1 - num2)
   });
 
   it('test suite for type=DIVIDE', () => {
@@ -30,5 +39,6 @@ describe('test calculateNumber', () => {
     let num2 = 0.2;
     const result = calculateNumber('DIVIDE', num1, num2);
     chai.expect(result).to.equal('Error');
+    chai.expect(result).to.not.be.empty;
   });
 });
